@@ -11,6 +11,18 @@ const AddContactForm = () => {
     latitude: '',
   });
 
+  const getRandomCoordinates = () => {
+    const latMin = 4.0; // Southernmost latitude of Nigeria
+    const latMax = 14.0; // Northernmost latitude of Nigeria
+    const lonMin = 3.0; // Westernmost longitude of Nigeria
+    const lonMax = 15.0; // Easternmost longitude of Nigeria
+  
+    const latitude = (Math.random() * (latMax - latMin) + latMin).toFixed(4);
+    const longitude = (Math.random() * (lonMax - lonMin) + lonMin).toFixed(4);
+  
+    return { latitude, longitude };
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContact(prevContact => ({
@@ -55,7 +67,14 @@ const AddContactForm = () => {
       /\S+@\S+\.\S+/.test(contact.email) &&
       contact.addresses.every(addr => addr !== '')
     ) {
-      saveContact(contact);
+      // Assign random longitude and latitude
+      const { latitude, longitude } = getRandomCoordinates();
+      const newContact = {
+        ...contact,
+        latitude,
+        longitude
+      };
+      saveContact(newContact);
       setContact({
         name: '',
         phoneNumber: '',
