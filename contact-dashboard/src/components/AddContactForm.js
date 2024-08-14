@@ -89,71 +89,78 @@ const AddContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="bg-blue-200 p-6 rounded-lg shadow-md max-w-lg mx-auto  space-y-4">
       <div>
-        <label>Name</label>
+        <label className="block text-blue-700 mb-2">Name</label>
         <input
           type="text"
           name="name"
           value={contact.name}
           onChange={handleChange}
           required
+          className="w-full p-2 border border-blue-400 rounded"
         />
       </div>
       <div>
-        <label>Phone Number</label>
+        <label className="block text-blue-700 mb-2">Phone Number</label>
         <input
           type="text"
           name="phoneNumber"
           value={contact.phoneNumber}
           onChange={handleChange}
           required
+          className="w-full p-2 border border-blue-400 rounded"
         />
       </div>
       <div>
-        <label>Email</label>
+        <label className="block text-blue-700 mb-2">Email</label>
         <input
           type="email"
           name="email"
           value={contact.email}
           onChange={handleChange}
           required
+          className="w-full p-2 border border-blue-400 rounded"
         />
       </div>
       <div>
-        <label>Addresses</label>
+        <label className="block text-blue-700 mb-2">Addresses</label>
         {contact.addresses.map((address, index) => (
-          <div key={index}>
+          <div key={index} className="flex items-center mb-2">
             <input
               type="text"
               value={address}
               onChange={(e) => handleAddressChange(index, e.target.value)}
               required
+              className="w-full p-2 border border-blue-400 rounded"
             />
             {index > 0 && (
-              <button type="button" onClick={() => handleRemoveAddress(index)}>
+              <button type="button" onClick={() => handleRemoveAddress(index)} className="ml-2 text-blue-700">
                 Remove
               </button>
             )}
           </div>
         ))}
         {contact.addresses.length < 5 && (
-          <button type="button" onClick={handleAddAddress}>
+          <button type="button" onClick={handleAddAddress} className="mt-2 text-blue-700">
             Add Address
           </button>
         )}
       </div>
       <div>
-        <label>Longitude</label>
-        <input type="text" name="longitude" value={contact.longitude} disabled />
+        <label className="block text-blue-700 mb-2">Longitude</label>
+        <input type="text" name="longitude" value={contact.longitude} disabled className="w-full p-2 border border-blue-400 rounded bg-gray-100" />
       </div>
       <div>
-        <label>Latitude</label>
-        <input type="text" name="latitude" value={contact.latitude} disabled />
+        <label className="block text-blue-700 mb-2">Latitude</label>
+        <input type="text" name="latitude" value={contact.latitude} disabled className="w-full p-2 border border-blue-400 rounded bg-gray-100" />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded">
+        Submit
+      </button>
     </form>
   );
 };
+
 
 export default AddContactForm;
