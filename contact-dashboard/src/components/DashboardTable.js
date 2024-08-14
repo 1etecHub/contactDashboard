@@ -2,7 +2,7 @@ import React from 'react';
 
 const DashboardTable = ({ contacts }) => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto rounded-lg">
       <table className="min-w-full bg-white border border-blue-300 table-fixed">
         <thead className="bg-blue-200">
           <tr>

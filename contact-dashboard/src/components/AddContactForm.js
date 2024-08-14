@@ -89,7 +89,7 @@ const AddContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-blue-200 p-6 rounded-lg shadow-md max-w-lg mx-auto  space-y-4">
+    <form onSubmit={handleSubmit} className="bg-blue-200 p-6 rounded-lg shadow-md max-w-lg overflow-x-auto space-y-4">
       <div>
         <label className="block text-blue-700 mb-2">Name</label>
         <input
